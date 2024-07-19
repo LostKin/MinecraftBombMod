@@ -3,6 +3,8 @@ package com.lostkin.bombmod.init;
 import com.google.common.base.Function;
 import com.google.common.base.Supplier;
 import com.lostkin.bombmod.BombMod;
+import com.lostkin.bombmod.blocks.ExampleBlock;
+import com.lostkin.bombmod.blocks.HardpointBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -20,13 +22,23 @@ public class BlockInit {
     public static final DeferredRegister<Item> ITEMS = ItemInit.ITEMS;
 
     public static final RegistryObject<Block> EXAMPLE_BLOCK = register("example_block",
-            () -> new Block(BlockBehaviour.Properties
+            () -> new ExampleBlock(BlockBehaviour.Properties
                     .of(Material.METAL, MaterialColor.COLOR_PURPLE)
                     .strength(2)
                     .sound(SoundType.METAL)
                     .requiresCorrectToolForDrops()
             ),
             object -> () -> new BlockItem(object.get(),new Item.Properties().tab(BombMod.BOMBMOD_TAB)));
+
+
+    public static final RegistryObject<Block> HARDPOINT_BLOCK = register("hardpoint_block",
+            () -> new HardpointBlock(BlockBehaviour.Properties
+                    .of(Material.METAL)
+                    .dynamicShape()
+                    .sound(SoundType.METAL)
+            ),
+            object -> () -> new BlockItem(object.get(), new Item.Properties().tab(BombMod.BOMBMOD_TAB)));
+
 
     private static<T extends Block> RegistryObject<T> registerBlock(final String name, final Supplier<? extends T> block) {
         return BLOCKS.register(name, block);

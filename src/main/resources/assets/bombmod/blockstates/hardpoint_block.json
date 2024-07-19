@@ -1,0 +1,29 @@
+{
+  "variants" : {
+    "facing=up": {
+      "model" : "bombmod:block/hardpoint_block"
+    },
+    "facing=down": {
+      "model" : "bombmod:block/hardpoint_block",
+      "x": 180
+    },
+    "facing=east": {
+      "model" : "bombmod:block/hardpoint_block",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model" : "bombmod:block/hardpoint_block",
+      "x": 90
+    },
+    "facing=west": {
+      "model" : "bombmod:block/hardpoint_block",
+      "x": 90,
+      "y": -90
+    },
+    "facing=south": {
+      "model" : "bombmod:block/hardpoint_block",
+      "x": 270
+    }
+  }
+}
