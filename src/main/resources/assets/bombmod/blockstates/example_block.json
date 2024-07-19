@@ -1,0 +1,7 @@
+{
+  "variants" : {
+    "": {
+      "model" : "bombmod:block/example_block"
+    }
+  }
+}

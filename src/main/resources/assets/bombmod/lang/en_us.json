@@ -1,0 +1,5 @@
+{
+  "item.bombmod.example_item" : "Example Item",
+  "itemGroup.bombmod" : "Better bombs",
+  "block.bombmod.example_block": "Example Block"
+}
