@@ -61,6 +61,10 @@ public class BombMod {
         MinecraftForge.EVENT_BUS.register(this);
     }
 
+    public static void log(String text) {
+        LOGGER.info(text);
+    }
+
     private void setup(final FMLCommonSetupEvent event) {
         // Some preinit code
         LOGGER.info("HELLO FROM PREINIT");

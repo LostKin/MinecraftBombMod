@@ -1,9 +1,11 @@
 package com.lostkin.bombmod.blocks;
 
+import com.lostkin.bombmod.BombMod;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DirectionalBlock;
@@ -81,5 +83,34 @@ public class HardpointBlock extends Block {
     @Override
     public BlockState rotate(BlockState state, LevelAccessor level, BlockPos pos, Rotation direction) {
         return state.setValue(FACING, direction.rotate(state.getValue(FACING)));
+    }
+
+    @Override
+    public void neighborChanged(BlockState states, Level level, BlockPos pos, Block block, BlockPos pos_2, boolean p_57462_) {
+        if (level.hasNeighborSignal(pos)) {
+            BlockPos target = pos;
+            switch (states.getValue(FACING)) {
+                case DOWN -> {
+                    target = pos.below();
+                }
+                case UP -> {
+                    target = pos.above();
+                }
+                case NORTH -> {
+                    target = pos.north();
+                }
+                case SOUTH -> {
+                    target = pos.south();
+                }
+                case WEST -> {
+                    target = pos.west();
+                }
+                case EAST -> {
+                    target = pos.east();
+                }
+            }
+            level.removeBlock(target, false);
+        }
+
     }
 }

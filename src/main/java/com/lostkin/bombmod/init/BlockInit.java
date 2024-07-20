@@ -3,6 +3,7 @@ package com.lostkin.bombmod.init;
 import com.google.common.base.Function;
 import com.google.common.base.Supplier;
 import com.lostkin.bombmod.BombMod;
+import com.lostkin.bombmod.blocks.BombBlock;
 import com.lostkin.bombmod.blocks.ExampleBlock;
 import com.lostkin.bombmod.blocks.HardpointBlock;
 import net.minecraft.world.item.BlockItem;
@@ -33,6 +34,14 @@ public class BlockInit {
 
     public static final RegistryObject<Block> HARDPOINT_BLOCK = register("hardpoint_block",
             () -> new HardpointBlock(BlockBehaviour.Properties
+                    .of(Material.METAL)
+                    .dynamicShape()
+                    .sound(SoundType.METAL)
+            ),
+            object -> () -> new BlockItem(object.get(), new Item.Properties().tab(BombMod.BOMBMOD_TAB)));
+
+    public static final RegistryObject<Block> BOMB_BLOCK_1 = register("bomb_block_1",
+            () -> new BombBlock(BlockBehaviour.Properties
                     .of(Material.METAL)
                     .dynamicShape()
                     .sound(SoundType.METAL)

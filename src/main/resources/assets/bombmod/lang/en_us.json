@@ -1,6 +1,7 @@
 {
   "item.bombmod.example_item" : "Example Item",
-  "itemGroup.bombmod" : "Better bombs",
+  "itemGroup.bombmod" : "Better Bombs",
   "block.bombmod.example_block": "Example Block",
-  "block.bombmod.hardpoint_block": "Hardpoint"
+  "block.bombmod.hardpoint_block": "Hardpoint",
+  "block.bombmod.bomb_block_1": "Bomb"
 }
