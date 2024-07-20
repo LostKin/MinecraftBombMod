@@ -1,6 +1,7 @@
 package com.lostkin.bombmod;
 
 import com.lostkin.bombmod.init.BlockInit;
+import com.lostkin.bombmod.init.EntityInit;
 import com.lostkin.bombmod.init.ItemInit;
 import com.mojang.logging.LogUtils;
 import net.minecraft.world.item.CreativeModeTab;
@@ -48,6 +49,7 @@ public class BombMod {
 
         ItemInit.ITEMS.register(bus);
         BlockInit.BLOCKS.register(bus);
+        EntityInit.ENTITIES.register(bus);
 
 
         // Register the setup method for modloading
