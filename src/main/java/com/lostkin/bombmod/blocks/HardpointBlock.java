@@ -3,6 +3,7 @@ package com.lostkin.bombmod.blocks;
 import com.lostkin.bombmod.BombMod;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.entity.item.PrimedTnt;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -19,6 +20,8 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
+
+import static com.lostkin.bombmod.init.BlockInit.BOMB_BLOCK_1;
 
 public class HardpointBlock extends Block {
 
@@ -109,7 +112,20 @@ public class HardpointBlock extends Block {
                     target = pos.east();
                 }
             }
-            level.removeBlock(target, false);
+            BlockState targetBlock = level.getBlockState(target);
+
+            if (targetBlock.getBlock() == BOMB_BLOCK_1.get()) {
+                //BOMB_1 found
+                level.removeBlock(target, false);
+                // we should spawn the bomb here
+                level.addFreshEntity(new PrimedTnt(level,
+                        target.getX() + 0.5f,
+                        target.getY() + 0.5f,
+                        target.getZ() + 0.5f,
+                        null));
+            }
+
+
         }
 
     }
